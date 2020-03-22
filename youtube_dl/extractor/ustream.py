@@ -174,7 +174,7 @@ class UstreamIE(InfoExtractor):
             video_id = m.group('id')
             webpage = self._download_webpage(url, video_id)
             content_video_ids = self._parse_json(self._search_regex(
-                r'ustream\.vars\.offAirContentVideoIds=([^;]+);', webpage,
+                r'ustream\.vars\.uumfOffAirContentVideoIds=([^;]+);', webpage,
                 'content video IDs'), video_id)
             return self.playlist_result(
                 map(lambda u: self.url_result('http://www.ustream.tv/recorded/' + u, 'Ustream'), content_video_ids),
